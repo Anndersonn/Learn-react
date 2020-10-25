@@ -1,3 +1,8 @@
+.user a{ 
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
@@ -8,7 +13,9 @@
     color: white;
 }
 
-.dialogsItems .active {
+
+
+.dialogItem a.active{ 
     color: gold;
 }
 
