@@ -9,8 +9,15 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
 
 
-    let dialogsElements =  props.dialogs.map( d => <DialogItem name={d.name} id={d.id} />  );
-    let messagesElements = props.messages.map( m => <Message message={m.message}/> );
+    let dialogsElements =  props.dialogsPage.dialogs.map( d => <DialogItem name={d.name} id={d.id} />  );
+    let messagesElements = props.dialogsPage.messages.map( m => <Message message={m.message}/> );
+
+    let something = React.createRef();
+
+    let intoSomething = () => {
+        let inside = something.current.value;
+        alert(inside);
+    }
 
     return (
         <div className={s.dialogs}>
@@ -20,6 +27,9 @@ const Dialogs = (props) => {
             <div className={s.messages}>
                 { messagesElements }
             </div>
+            <div>
+            <textarea ref={something}></textarea>
+            <button onClick={intoSomething} className={s.send}>Отправить</button></div>
         </div>
     )
 }
