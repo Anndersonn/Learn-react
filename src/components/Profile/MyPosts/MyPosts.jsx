@@ -9,6 +9,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../red
 const MyPosts = (props) => {
     let postsElements =
         props.profilePage.posts.map( p => <Post message={p.message} likesCount={p.likesCount} key={p.id}/>);
+    let newPostText = props.profilePage.newPostText;
 
     let newPost = React.createRef();
 
@@ -29,7 +30,7 @@ const MyPosts = (props) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPost} onChange={onPostChange} value={props.newPostText}></textarea>
+                    <textarea ref={newPost} onChange={onPostChange} value={newPostText}></textarea>
                 </div>
                 <div>
                     <button onClick={ addPost }>Add post</button>

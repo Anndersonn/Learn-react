@@ -12,6 +12,7 @@ const Dialogs = (props) => {
 
     let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} key={d.id} />);
     let messagesElements = props.dialogsPage.messages.map(m => <Message message={m.message} />);
+    let newMessageBody = props.dialogsPage.newMessageBody;
 
     let newBody = React.createRef();
 
@@ -33,7 +34,7 @@ const Dialogs = (props) => {
                 {messagesElements}
             </div>
             <div>
-                <textarea ref={newBody} onChange={onBodyChange} value={props.newMessageBody}></textarea>
+                <textarea ref={newBody} onChange={onBodyChange} value={newMessageBody}></textarea>
                 <button onClick={addBody} className={s.send}>Отправить</button>
             </div>
         </div>
